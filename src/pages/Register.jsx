@@ -4,7 +4,7 @@ import { DefaultLayout } from '../components'
 const Register = () => {
   return (
     <DefaultLayout>
-        <div>Register</div>
+      <div>Register</div>
     </DefaultLayout>
   )
 }

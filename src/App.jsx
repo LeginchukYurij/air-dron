@@ -8,10 +8,11 @@ import Cart from './pages/Cart';
 import NotFaund from './pages/NotFaund';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { commerce } from './libs/commerce';
+import commerce from './libs/commerce';
 
 import { setProducts } from './redux/products/productsSlice';
 import { setCategories } from './redux/products/categoriesSlice';
+import Product from './pages/Product';
 
 
 const App = () => {
@@ -23,8 +24,8 @@ const App = () => {
       const products = await commerce.products.list();
       const categories = await commerce.categories.list();
 
-      dispatch(setProducts(products || []));
-      dispatch(setCategories(categories || []));
+      // dispatch(setProducts(products || []));
+      // dispatch(setCategories(categories || []));
     } catch (e) {
       console.log(e);
     }
@@ -33,7 +34,7 @@ const App = () => {
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
     fetchProducts();
-  }, [])
+  }, [theme])
 
   return (
 
@@ -41,7 +42,9 @@ const App = () => {
       <Router>
         <Routes>
           <Route exact path='/' element={<Home />} />
-          <Route exact path='/category/:name' element={<Category />} />
+          <Route exact path='/category/' element={<Category />} />
+          <Route path='/category/:categorySlug' element={<Category />} />
+          <Route path='/category/:categorySlug/:permalink' element={<Product />} />
           <Route exact path='/login' element={<Login />} />
           <Route exact path='/register' element={<Register />} />
           <Route exact path='/cart' element={<Cart />} />

@@ -1,18 +1,20 @@
-import styled from 'styled-components';
-import uniqid from 'uniqid';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import styled from "styled-components";
+import uniqid from "uniqid";
+import NLink from "./NLink";
 
 
 
 
-const NavList = styled.div`
+const NavListWrapper = styled.div`
     ul {
         display: flex;
         margin: 0;
+        flex-direction: ${props => props.orientation === "row" ? "row" : "column"};
     }
 
     li:not(:last-child) {
-        margin-right: 20px;
+        ${props => props.orientation === "row" ? "margin-right: 20px;" : "margin-bottom: 10px;"};
     }
 
     li a {
@@ -22,36 +24,28 @@ const NavList = styled.div`
         &:hover {
             color: var(--accent);
         }
+
+        &.active {
+            color: var(--accent);
+        }
     }
 `;
 
-export default () => {
-    const data = [
-        {
-            name: 'Головна',
-            path: '/'
-        },
-        {
-            name: 'Оплата і достака',
-            path: '/'
-        },
-        {
-            name: 'Про компанію',
-            path: '/'
-        },
-        {
-            name: 'Блог',
-            path: '/'
-        }
-    ];
-
+const NavList = ({ data, orientation }) => {
     return (
-        <NavList>
+        <NavListWrapper orientation={orientation}>
             <ul>
                 {data?.map(item => <li key={uniqid()}>
-                    <Link to={item.path}>{item.name}</Link>
+                    <NLink to={item.path}>{item.name}</NLink>
                 </li>)}
             </ul>
-        </NavList>
+        </NavListWrapper>
     )
 }
+
+NavList.propTypes = {
+    data: PropTypes.array.isRequired,
+    orientation: PropTypes.string.isRequired
+};
+
+export default NavList;

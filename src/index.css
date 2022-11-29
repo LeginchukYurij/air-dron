@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
 
-
 :root {
   --family: 'Nunito', sans-serif;
   --fz-base: 18px;
@@ -9,22 +8,25 @@
   --fw-normal: 400;
   --fw-medium: 500;
   --fw-bold: 700;
-  --accent-hot: #F63747;
+  --accent-hot: #f63747;
   --accent: #1677ff;
+  --h1: 32px;
 }
 
-
-body[data-theme="light"] {
+body[data-theme='light'] {
   --txt-base: #2c3e50;
   --bg: #fff;
   --contrast: #333;
+  --box-bg: #f5f8ff;
+  --border: #f2f2f2;
 }
 
-body[data-theme="dark"] {
+body[data-theme='dark'] {
   --txt-base: #b6b6b6;
   --box-bg: #f5f8ff;
   --bg: #000;
   --contrast: #fff;
+  --border: #f2f2f2;
 }
 
 body {
@@ -36,22 +38,55 @@ body {
   background-color: var(--bg);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.title {
+  color: var(--txt-base);
+  margin: 0;
+  margin-bottom: 20px;
+}
 
-*, *::after, *::before {
+h1 {
+  font-size: var(--h1);
+  line-height: var(--lh-base);
+  font-weight: var(--fw-bold);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+*,
+*::after,
+*::before {
   box-sizing: border-box;
 }
 
 img {
   display: block;
-  max-width: 100;
+  max-width: 100%;
 }
 
-ul, ol {
+ul,
+ol {
   padding: 0;
   list-style: none;
 }
 
+a.active {
+  color: var(--accent);
+}
 
-
-
-
+.main-content {
+  padding: 60px 0 100px;
+}

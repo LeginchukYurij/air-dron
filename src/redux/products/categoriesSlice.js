@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     categories: [],
+    selectedCategory: {}
 };
 
 const categoriesSlice = createSlice({
@@ -10,10 +11,16 @@ const categoriesSlice = createSlice({
     reducers: {
         setCategories: (state, action) => {
             state.categories = action.payload.data;
-        }
+        },
+        setSelectedCategory: (state, action) => {
+            state.selectedCategory = action.payload;
+        },
+        removeSelectedCategory: (state) => {
+            state.selectedCategory = {};
+        },
     }
 });
 
-export const { setCategories } = categoriesSlice.actions;
+export const { setCategories, setSelectedCategory, removeSelectedCategory } = categoriesSlice.actions;
 export default categoriesSlice.reducer;
 
