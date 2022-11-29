@@ -1,6 +1,7 @@
 import Commerce from '@chec/commerce.js';
 
-const checAPIKey = 'pk_4854025085e4c906d737ec82edc4b0a8d682eaf5b0a41';
+const checAPIKey = `${import.meta.env.VITE_COMMERCE_API_KEY}`;
+
 const devEnvironment = process.env.NODE_ENV === 'development';
 
 const commerceConfig = {
@@ -13,11 +14,9 @@ const commerceConfig = {
 };
 
 if (devEnvironment && !checAPIKey) {
-  throw Error('Your public API key must be provided as an environment variable named NEXT_PUBLIC_CHEC_PUBLIC_KEY. Obtain your Chec public key by logging into your Chec account and navigate to Setup > Developer, or can be obtained with the Chec CLI via with the command chec whoami');
+  throw Error(
+    'Your public API key must be provided as an environment variable named NEXT_PUBLIC_CHEC_PUBLIC_KEY. Obtain your Chec public key by logging into your Chec account and navigate to Setup > Developer, or can be obtained with the Chec CLI via with the command chec whoami',
+  );
 }
 
-export default new Commerce(
-  checAPIKey,
-  devEnvironment,
-  commerceConfig,
-);
+export default new Commerce(checAPIKey, devEnvironment, commerceConfig);

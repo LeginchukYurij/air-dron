@@ -36,6 +36,7 @@ const App = () => {
     fetchProducts();
   }, [theme])
 
+
   return (
 
     <div className='App'>
