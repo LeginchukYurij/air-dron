@@ -1,11 +1,14 @@
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { PrimeryButton, PrimeryLink } from "../../UI";
 
 const Card = styled.div`
     width: 100%;
+    display: flex;
+    flex-direction: column;
 
-    a {
+    & > a {
         display: block;
         font-weight: var(--fw-medium);
         font-size: 16px;
@@ -15,6 +18,10 @@ const Card = styled.div`
         &:hover {
             color: var(--accent);
         }
+    }
+
+    .btn {
+        margin-top: auto;
     }
 `;
 
@@ -43,24 +50,41 @@ const Price = styled.span`
     font-size: 15px;
     color: var(--contrast);
     margin-top: 15px;
+    margin-bottom: 15px;
 `;
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, categorySlug, addToCartHandler, inCart }) => {
     const {name, permalink, image, price} = product;
-    const { slug } = useSelector(state => state.categories.selectedCategory);
-
+    
     return (
         <Card>
-            <Link to={`/category/${slug}/${permalink}`}>
+            <Link to={`/category/${categorySlug}/${permalink}`}>
                 <ImageWrapper>
                     <img src={image?.url} alt="E" />
                 </ImageWrapper>
             </Link>
 
-            <Link to={`/category/${slug}/${permalink}`}>{name}</Link>
+            <Link to={`/category/${categorySlug}/${permalink}`}>{name}</Link>
             <Price>{price?.formatted_with_symbol}</Price>
+
+            {!inCart ?
+                (<PrimeryButton clickHandler={addToCartHandler}>
+                    В кошик
+                </PrimeryButton>)
+                : (<PrimeryLink to='/cart'>
+                    В кошику
+                </PrimeryLink>)
+            }
+            
         </Card>
-    )
+    )   
 }
+
+ProductCard.propTypes = {
+    product: PropTypes.object.isRequired,
+    categorySlug: PropTypes.string.isRequired,
+    addToCartHandler: PropTypes.func.isRequired,
+    inCart: PropTypes.object,
+};
 
 export default ProductCard;

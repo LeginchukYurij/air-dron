@@ -14,7 +14,7 @@ const CartWrapper = styled.div`
         width: 15px;
         height: 15px;
         border-radius: 50%;
-        background-color: #F63747;
+        background-color: var(--accent-hot);
         font-size: 10px;
         color: #fff;
         position: absolute;
@@ -28,14 +28,14 @@ const CartWrapper = styled.div`
 `;
 
 
-const Cart = () => {
+const Cart = ({allQuantity}) => {
   return (
     <CartWrapper>
         <NavLink to="/cart">
             <BsCartFill
                 size="20px" />
 
-            <span>1</span>
+            { allQuantity ? (<span>{allQuantity}</span>) : null }
         </NavLink>
     </CartWrapper>
   )

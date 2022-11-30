@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Logo from './Logo';
 import { FlexContainer } from '../styledComponents';
 import NavList from './NavList';
-import Cart from './Cart';
+import CartContainer from './Cart/CartContainer';
 import Search from './Search';
 import { headerNavLinks } from '../data';
 import HeaderCategories from './HeaderCategories';
@@ -20,7 +20,7 @@ const Header = () => {
                 <Logo />
                 <NavList data={headerNavLinks} orientation="row" />
                 <Search />
-                <Cart />
+                <CartContainer />
             </FlexContainer>
 
             <HeaderCategories />

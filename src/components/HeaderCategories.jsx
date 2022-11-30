@@ -25,6 +25,10 @@ const Categories = styled.div`
     li a {
         text-decoration: none;
         color: #fff;
+
+        &:hover, &.active {
+            color: var(--accent);
+        }
     }
 `;
 
@@ -37,12 +41,12 @@ const HeaderCategories = () => {
             <Container>
                 <ul>
                     {sortCategories(categories)
-                        .map(item => 
+                        .map(item => item.products ? 
                             <li key={item.id}>
                                 <NLink to={`/category/${item.slug}`}>
                                     {item.name}
                                 </NLink>
-                            </li>
+                            </li> : null
                         )}
                 </ul>
             </Container>
