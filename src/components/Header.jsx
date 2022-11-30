@@ -8,7 +8,7 @@ import { headerNavLinks } from '../data';
 import HeaderCategories from './HeaderCategories';
 
 const MainHeader = styled.header`
-    padding: 10px 0;
+    padding: 10px 0 0;
     background-color: var(--bg);
     box-shadow: 5px 5px 45px -5px rgb(107 216 206 / 20%);
 `;
@@ -16,7 +16,7 @@ const MainHeader = styled.header`
 const Header = () => {
     return (
         <MainHeader>
-            <FlexContainer align="center">
+            <FlexContainer align="center" style={{paddingBottom: 10}}>
                 <Logo />
                 <NavList data={headerNavLinks} orientation="row" />
                 <Search />

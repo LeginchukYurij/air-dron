@@ -8,32 +8,15 @@ import Cart from './pages/Cart';
 import NotFaund from './pages/NotFaund';
 
 import { useDispatch, useSelector } from 'react-redux';
-import commerce from './libs/commerce';
-
-import { setProducts } from './redux/products/productsSlice';
-import { setCategories } from './redux/products/categoriesSlice';
 import Product from './pages/Product';
 
 
 const App = () => {
-  const dispatch = useDispatch();
-  const { theme } = useSelector(state => state.theme);
+  const theme  = useSelector(state => state.theme);
 
-  const fetchProducts = async () => {
-    try {
-      const products = await commerce.products.list();
-      const categories = await commerce.categories.list();
-
-      // dispatch(setProducts(products || []));
-      // dispatch(setCategories(categories || []));
-    } catch (e) {
-      console.log(e);
-    }
-  }
 
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
-    fetchProducts();
   }, [theme])
 
 

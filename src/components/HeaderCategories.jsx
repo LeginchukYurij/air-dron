@@ -9,7 +9,6 @@ import { sortCategories } from '../utils';
 const Categories = styled.div`
     display: flex;
     align-items: center;
-    margin-top: 20px;
     height: 60px;
     background-color: var(--accent);
 
@@ -26,9 +25,7 @@ const Categories = styled.div`
         text-decoration: none;
         color: #fff;
 
-        &:hover, &.active {
-            color: var(--accent);
-        }
+        
     }
 `;
 
