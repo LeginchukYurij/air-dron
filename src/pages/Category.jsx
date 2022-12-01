@@ -20,6 +20,7 @@ import { useEffect } from 'react';
 import { removeSelectedCategory } from '../redux/products/categoriesSlice';
 import { useDispatch } from 'react-redux';
 import { removeProducts } from '../redux/products/productsSlice';
+import { Notification } from '../UI';
 
 
 const Category = () => {
@@ -55,6 +56,8 @@ const Category = () => {
                     </Content>
                 </ContainerWithAside>
             </Container>
+
+            <Notification />
         </DefaultLayout>
     )
 }
