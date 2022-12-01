@@ -9,7 +9,7 @@ import HeaderCategories from './HeaderCategories';
 
 const MainHeader = styled.header`
     padding: 10px 0 0;
-    background-color: var(--bg);
+    background-color: var(--bg-light);
     box-shadow: 5px 5px 45px -5px rgb(107 216 206 / 20%);
 `;
 

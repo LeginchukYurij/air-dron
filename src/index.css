@@ -15,18 +15,22 @@
 
 body[data-theme='light'] {
   --txt-base: #2c3e50;
-  --bg: #fff;
+  --bg: #f2f3f5;
+  --bg-light: #fff;
   --contrast: #333;
   --box-bg: #f5f8ff;
   --border: #f2f2f2;
+  --border-line: 1px solid var(--border);
 }
 
 body[data-theme='dark'] {
   --txt-base: #b6b6b6;
   --box-bg: #f5f8ff;
   --bg: #000;
+  --bg-light: #fff;
   --contrast: #fff;
   --border: #f2f2f2;
+  --border-line: 1px solid var(--border);
 }
 
 body {

@@ -1,18 +1,26 @@
 import React from 'react'
-import { DefaultContext } from 'react-icons';
 import { useSelector } from 'react-redux'
-import { DefaultLayout } from '../components';
-import { Container } from '../styledComponents';
+import { CartItemContainer, DefaultLayout } from '../components';
+import { CartTotalContainer } from '../components';
+import { Container, ContainerWithSidebar, FrameBox, PageTitle } from '../styledComponents';
 
 const Cart = () => {
     const {cart} = useSelector(state => state.cart);
 
-    console.log(cart)
-
     return (
         <DefaultLayout>
             <Container>
-                <div>Cart</div>
+                <PageTitle>Кошик</PageTitle>
+                <ContainerWithSidebar sidebarPos="right">
+                    <FrameBox>
+                        {cart?.map(item => <CartItemContainer 
+                            key={item.id} item={item} />)}
+                    </FrameBox>
+
+                    <FrameBox style={{position: 'sticky', top: 20, height: 'fit-content'}}>
+                        <CartTotalContainer />
+                    </FrameBox>
+                </ContainerWithSidebar>
             </Container>
         </DefaultLayout>
         

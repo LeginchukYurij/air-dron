@@ -10,6 +10,7 @@ import NotFaund from './pages/NotFaund';
 import { useDispatch, useSelector } from 'react-redux';
 import Product from './pages/Product';
 import { NotificationState } from './context/notification/NotificationState';
+import Checkout from './pages/Checkout';
 
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
             <Route exact path='/login' element={<Login />} />
             <Route exact path='/register' element={<Register />} />
             <Route exact path='/cart' element={<Cart />} />
+            <Route exact path='/checkout' element={<Checkout />} />
             <Route path="*" element={<NotFaund />} />
           </Routes>
         </Router>

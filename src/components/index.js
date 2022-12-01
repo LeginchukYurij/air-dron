@@ -8,10 +8,13 @@ import ProductCardContainer from './ProductCard/ProductCardContainer';
 import Search from './Search';
 import Cart from './Cart';
 import CartContainer from './Cart/CartContainer';
+import CartTotalContainer from './CartTotal/CartTotalContainer';
+import CartItemContainer from './CartItem/CartItemContainer';
 import Sidebar from './Sidebar';
 import Title from './Title';
 import NLink from './NLink';
 import CategoriesBox from './CategoriesBox';
+import Thumbnail from './Thumbnail';
 
 export {
   DefaultLayout,
@@ -24,8 +27,11 @@ export {
   Search,
   Cart,
   CartContainer,
+  CartTotalContainer,
+  CartItemContainer,
   Sidebar,
   Title,
   NLink,
   CategoriesBox,
+  Thumbnail,
 };

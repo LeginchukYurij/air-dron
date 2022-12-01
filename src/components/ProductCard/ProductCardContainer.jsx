@@ -18,7 +18,7 @@ const ProductCardContainer = ({ product }) => {
 
         setTimeout(() => {
             notification.hide();
-        }, 4000)
+        }, 2000)
     }
     
 

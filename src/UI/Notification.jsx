@@ -1,41 +1,52 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import { useContext } from "react";
 import { NotificationContext } from "../context/notification/notificationContext";
 
+const shiftRightAnimation = keyframes`
+    0% {
+        opacity: 0;
+        transform:  translateX(calc(-100% - 20px));
+    }
+    100% {
+        opacity: 1;
+        transform:  translateX(0);
+    }
+`
+
 const NotificationWrapper = styled.div`
     position: fixed;
+    transform: translateX(calc(-100% - 20px));
     left: 20px;
     bottom: 50px;
     background-color: green;
     border-radius: 5px;
     padding: 10px;
     max-width: 200px;
+    width: 100%;
     color: #fff;
     
     &.active {
-        animation: shiftRight 5s linear 0s infinite normal none
+        animation: ${shiftRightAnimation};
+        animation-duration: .3s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
     }
 
 
     @keyframes shiftRight {
-        0% {
-            transform:  translate(0 -100%) skew(0) rotate(0);
-        }
-        70% {
-            transform:  translate(0 100%);
-        }
-        100% {
-            transform:  translate(0 -100%) skew(0) rotate(0);
-        }
+        
     }
 `;
+
+
 
 const Notification = () => {
     const {notification} = useContext(NotificationContext);
     
-    if(!notification.visible) {
-        return null;
-    }
+    // if(!notification.visible) {
+    //     return null;
+    // }
 
     return (
         <NotificationWrapper className={notification.visible ? 'active' : null}>

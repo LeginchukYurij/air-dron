@@ -1,5 +1,5 @@
 import { Container } from './Container';
-import { ContainerWithAside } from './ContainerWithAside';
+import ContainerWithSidebar from './ContainerWithSidebar';
 import { FlexContainer } from './FlexContainer';
 import { FrameBox } from './FrameBox';
 import { GridContainer } from './GridContainer';
@@ -8,7 +8,7 @@ import { Content } from './Content';
 
 export {
   Container,
-  ContainerWithAside,
+  ContainerWithSidebar,
   FlexContainer,
   FrameBox,
   GridContainer,

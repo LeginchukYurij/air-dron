@@ -10,7 +10,7 @@ import {
     Content,
     FrameBox, 
     Container,
-    ContainerWithAside, 
+    ContainerWithSidebar, 
     GridContainer,
     PageTitle } from '../styledComponents';
 
@@ -39,7 +39,7 @@ const Category = () => {
     return (
         <DefaultLayout>
             <Container>
-                <ContainerWithAside>
+                <ContainerWithSidebar sidebarPos="left">
                     <Sidebar>
                         <Title level={2}>Категорії</Title>
                         <FrameBox>
@@ -54,7 +54,7 @@ const Category = () => {
                                 <ProductCardContainer key={product.id} product={product} />)}
                         </GridContainer>
                     </Content>
-                </ContainerWithAside>
+                </ContainerWithSidebar>
             </Container>
 
             <Notification />

@@ -7,6 +7,11 @@ const Card = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
+    background-color: var(--bg-light);
+    padding: 10px;
+    border-radius: 5px;
+    border: var(--border-line);
+
 
     & > a {
         display: block;
@@ -26,7 +31,7 @@ const Card = styled.div`
 `;
 
 const ImageWrapper = styled.div`
-    height: 240px;
+    height: 200px;
     margin-bottom: 20px;
     overflow: hidden;
     cursor: pointer;
